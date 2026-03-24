@@ -295,7 +295,7 @@ Accuracy_RMSE = sqrt(mean(y_experimental - y_ana_adj).^2); % Computes at every p
 
 
 % ** Compute Fourier number for each state
-F_0 = (alpha_adj*t_SS_3)/L;
+% F_0 = (alpha_adj*t_SS_3)/L;
 
 % ** Display/Store both Values in a Table for Each Case
 

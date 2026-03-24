@@ -178,18 +178,19 @@ alpha = alpha_st;
 end
 
 % Create Scale Factor for Model III
-Scale_vals = 0.5;
+Scale_val_Al = .25;%1.25;
+Scale_val_Br = 0.75;
+Scale_val_St = .25;
 
 % Use if statement to assign adjusted alpha to each different material case
-for k = 1:length(Scale_vals)
 if contains(a(i).name,'Aluminum')
-alpha_adj = Scale_vals*alpha_al;
+alpha_adj = Scale_val_Al*alpha_al;
 elseif contains(a(i).name,'Brass')
-alpha_adj = Scale_vals*alpha_br;
+alpha_adj = Scale_val_Br*alpha_br;
 elseif contains(a(i).name,'Steel')
-alpha_adj = Scale_vals*alpha_st;
+alpha_adj = Scale_val_St*alpha_st;
 end
-end
+
 
 T0_Cases = T0(i); % Create y-intercept or T0 for each case to satisfy plotting dimensions
 % Loop through all thermocouples for plotting
@@ -205,7 +206,6 @@ sum_ana2 = zeros(10,length(t));
 
 % ** Preallocation for Model III
 sum_ana_adj = zeros(10, length(t));
-L = lengthBar - x_start;
 L = lengthBar - x_start;
 
 for j = 1:10 % loop for number of iterations of transient solution fourier terms/nodes
@@ -295,7 +295,7 @@ Accuracy_RMSE = sqrt(mean(y_experimental - y_ana_adj).^2); % Computes at every p
 
 
 % ** Compute Fourier number for each state
-% F_0 = (alpha_adj*t_SS_3)/L;
+%F_0 = (alpha_adj*t_SS_3)/L;
 
 % ** Display/Store both Values in a Table for Each Case
 
@@ -368,4 +368,5 @@ end
 % line 215
 
 % &&&&&&&&&&& To Do: Must create table for Task 1
+
 

@@ -99,7 +99,7 @@ for i = 1:nFiles % loop through all material cases
         %plot RMS vs. alpha_adj (prob not inside k loop)
         figure(20)
         subplot(2,3,i)
-        plot(alpha_adj, Accuracy_RMSE, "b", "LineWidth", 1.5); %??? should this be the sum of Accuracy_RMSE
+        plot(alpha_adj, Accuracy_RMSE_sum, "b", "LineWidth", 1.5); %??? should this be the sum of Accuracy_RMSE
         hold on
         title(file_string(i))
         xlabel("Alpha Values")
